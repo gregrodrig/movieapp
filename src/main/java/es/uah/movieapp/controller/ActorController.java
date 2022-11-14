@@ -44,4 +44,9 @@ public class ActorController {
     public void eliminarActor(@PathVariable("id") Integer id){
         actorService.eliminarActor(id);
     }
+
+    @GetMapping("/pelicula/agregar/{idActor}/{idPelicula}")
+    public void aregarPelicula(@PathVariable("idActor") Integer idActor, @PathVariable("idPelicula") Integer idPelicula){
+        actorService.agregarPelicula(idActor, idPelicula);
+    }
 }

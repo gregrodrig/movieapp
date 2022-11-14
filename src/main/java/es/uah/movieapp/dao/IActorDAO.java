@@ -11,4 +11,6 @@ public interface IActorDAO {
      void guardarAutor(Actor actor);
      void eliminarAutor(Integer idAutor);
      void actualizarAutor(Actor actor);
+
+     void agregarPelicula(Integer idActor, Integer idPelicula);
 }

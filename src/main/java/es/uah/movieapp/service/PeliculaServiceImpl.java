@@ -1,12 +1,12 @@
 package es.uah.movieapp.service;
 
 import es.uah.movieapp.dao.IPeliculaDAO;
+import es.uah.movieapp.model.Actor;
+import es.uah.movieapp.model.Director;
+import es.uah.movieapp.model.Genero;
 import es.uah.movieapp.model.Pelicula;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Service
@@ -28,6 +28,21 @@ public class PeliculaServiceImpl implements IPeliculaService{
     @Override
     public Set<Pelicula> buscarPeliculaPorTitulo(String titulo) {
         return peliculaDAO.buscarPeliculaPorTitulo(titulo);
+    }
+
+    @Override
+    public Actor buscarPeliculaPorActor(String actor) {
+        return peliculaDAO.buscarPeliculaPorActor(actor);
+    }
+
+    @Override
+    public Genero buscarPeliculaPorGenero(String genero) {
+        return peliculaDAO.buscarPeliculaPorGenero(genero);
+    }
+
+    @Override
+    public Director buscarPeliculaPorDirector(String director) {
+        return peliculaDAO.buscarPeliculaPorDirector(director);
     }
 
     @Override

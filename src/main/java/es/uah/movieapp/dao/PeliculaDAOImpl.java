@@ -1,5 +1,8 @@
 package es.uah.movieapp.dao;
 
+import es.uah.movieapp.model.Actor;
+import es.uah.movieapp.model.Director;
+import es.uah.movieapp.model.Genero;
 import es.uah.movieapp.model.Pelicula;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,7 +18,6 @@ public class PeliculaDAOImpl implements IPeliculaDAO{
     IPeliculaJPA peliculaJPA;
     @Override
     public Set<Pelicula> buscarTodas() {
-        //return new HashSet<Pelicula>(peliculaJPA.findAll());
         return new HashSet<Pelicula>(peliculaJPA.findAll());
     }
 
@@ -31,6 +33,22 @@ public class PeliculaDAOImpl implements IPeliculaDAO{
     @Override
     public Set<Pelicula> buscarPeliculaPorTitulo(String titulo) {
         return peliculaJPA.findByTituloContainingIgnoreCase(titulo);
+    }
+
+    @Override
+    public Actor buscarPeliculaPorActor(String actor) {
+        return peliculaJPA.findPeliculaByActorsContainingIgnoreCase(actor);
+    }
+
+    @Override
+    public Genero buscarPeliculaPorGenero(String genero) {
+        return peliculaJPA.findPeliculaByGeneros(genero);
+    }
+
+    @Override
+    public Director buscarPeliculaPorDirector(String director) {
+
+        return peliculaJPA.findPeliculaByDirectors(director);
     }
 
     @Override

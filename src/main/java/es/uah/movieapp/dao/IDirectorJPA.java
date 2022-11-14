@@ -7,7 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Set;
 
 public interface IDirectorJPA extends JpaRepository<Director, Integer> {
-
-    //Director findByIdDirector(Integer idDirector);
     Director findByNombreContainingIgnoreCase(String nombre);
 }

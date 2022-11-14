@@ -1,6 +1,10 @@
 package es.uah.movieapp.controller;
 
+import es.uah.movieapp.model.Actor;
+import es.uah.movieapp.model.Director;
+import es.uah.movieapp.model.Genero;
 import es.uah.movieapp.model.Pelicula;
+import es.uah.movieapp.service.IGeneroService;
 import es.uah.movieapp.service.IPeliculaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +28,18 @@ public class PeliculaController {
     @GetMapping("/titulo/{titulo}")
     public Set<Pelicula> buscarPeliculaPorTitulo(@PathVariable("titulo") String titulo){
         return peliculaService.buscarPeliculaPorTitulo(titulo);
+    }
+    @GetMapping("/actor/{actor}")
+    public Actor buscarPeliculaPorActor(@PathVariable("actor") String actor){
+        return peliculaService.buscarPeliculaPorActor(actor);
+    }
+    @GetMapping("/genero/{genero}")
+    public Genero buscarPeliculaPorGenero(@PathVariable("genero") String genero){
+        return peliculaService.buscarPeliculaPorGenero(genero);
+    }
+    @GetMapping("/director/{director}")
+    public Director buscarPeliculaPorDirector(@PathVariable("director") String director){
+        return peliculaService.buscarPeliculaPorDirector(director);
     }
     @PostMapping("")
     public void guardarPelicula(@RequestBody Pelicula pelicula){

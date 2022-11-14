@@ -40,7 +40,7 @@ public class Pelicula {
     private Pais paisByTblPaisIdPais;
 
     @ManyToMany(mappedBy = "peliculas")
-    @JsonIgnore(true)
+   // @JsonIgnore(true)
     private Set<Actor> actors = new LinkedHashSet<>();
 
     public Pelicula() {
@@ -53,6 +53,10 @@ public class Pelicula {
         this.imagen = imagen;
         this.anno = anno;
         this.tblPaisIdPais = tblPaisIdPais;
+    }
+
+    public Pelicula(Set<Actor> actors) {
+        this.actors = actors;
     }
 
     @ManyToMany(mappedBy = "peliculas")

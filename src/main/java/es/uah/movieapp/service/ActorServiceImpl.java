@@ -44,4 +44,9 @@ public class ActorServiceImpl implements IActorService{
     public void actualizarActor(Actor actor) {
         actorDAO.actualizarAutor(actor);
     }
+
+    @Override
+    public void agregarPelicula(Integer idActor, Integer idPelicula) {
+        actorDAO.agregarPelicula(idActor, idPelicula);
+    }
 }

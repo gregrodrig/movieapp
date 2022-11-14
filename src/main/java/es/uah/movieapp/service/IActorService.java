@@ -11,4 +11,5 @@ public interface IActorService {
     void guardarActor(Actor actor);
     void eliminarActor(Integer idAutor);
     void actualizarActor(Actor actor);
+    void agregarPelicula(Integer idActor, Integer idPelicula);
 }
