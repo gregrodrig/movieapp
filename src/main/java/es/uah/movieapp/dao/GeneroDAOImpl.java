@@ -1,10 +1,12 @@
 package es.uah.movieapp.dao;
 
 import es.uah.movieapp.model.Genero;
+import es.uah.movieapp.model.Pelicula;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Repository
@@ -12,6 +14,9 @@ public class GeneroDAOImpl implements IGeneroDAO{
 
     @Autowired
     IGeneroJPA generoJPA;
+
+    @Autowired
+    IPeliculaJPA peliculaJPA;
 
     @Override
     public Set<Genero> buscarTodos() {
@@ -36,5 +41,18 @@ public class GeneroDAOImpl implements IGeneroDAO{
     @Override
     public void actualizarGenero(Genero genero) {
         generoJPA.save(genero);
+    }
+
+    @Override
+    public void agregarPelicula(Integer idGenero, Integer idPelicula) {
+        Optional<Genero> optionalGenero = generoJPA.findById(idGenero);
+        if (optionalGenero.isPresent()){
+            Genero genero = optionalGenero.get();
+            Optional<Pelicula> optionalPelicula = peliculaJPA.findById(idPelicula);
+            if (optionalPelicula.isPresent()){
+                genero.agregarPelicula(optionalPelicula.get());
+                generoJPA.save(genero);
+            }
+        }
     }
 }

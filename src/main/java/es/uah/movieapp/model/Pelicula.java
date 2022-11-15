@@ -1,5 +1,6 @@
 package es.uah.movieapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Table(name = "pelicula", schema = "movierater")
 public class Pelicula {
 
     private static final long serialVersionUID = 1L;
@@ -41,6 +43,7 @@ public class Pelicula {
 
     @ManyToMany(mappedBy = "peliculas")
    // @JsonIgnore(true)
+    @JsonBackReference
     private Set<Actor> actors = new LinkedHashSet<>();
 
     public Pelicula() {

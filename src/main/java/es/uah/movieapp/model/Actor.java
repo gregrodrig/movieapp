@@ -1,5 +1,6 @@
 package es.uah.movieapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -10,7 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name="actor")
+@Table(name = "actor", schema = "movierater")
 public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

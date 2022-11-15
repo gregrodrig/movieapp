@@ -36,4 +36,9 @@ public class GeneroServiceImpl implements IGeneroService{
     public void actualizarGenero(Genero genero) {
         generoDAO.actualizarGenero(genero);
     }
+
+    @Override
+    public void agregarPelicula(Integer idGenero, Integer idPelicula) {
+        generoDAO.agregarPelicula(idGenero, idPelicula);
+    }
 }

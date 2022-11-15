@@ -7,6 +7,7 @@ import java.util.Set;
 public interface IActorService {
     Set<Actor> buscarTodos();
     Set<Actor> buscarActorPorIdPais(Integer idPais);
+    Actor buscarAutorPorNombre(String nombre);
     Actor buscarActorPorId(Integer idAutor);
     void guardarActor(Actor actor);
     void eliminarActor(Integer idAutor);

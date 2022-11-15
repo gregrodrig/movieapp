@@ -10,4 +10,6 @@ public interface IGeneroDAO {
     void guardarGenero(Genero genero);
     void eliminarGenero(Integer idGenero);
     void actualizarGenero(Genero genero);
+
+    void agregarPelicula(Integer idGenero, Integer idPelicula);
 }

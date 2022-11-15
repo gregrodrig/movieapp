@@ -4,6 +4,7 @@ import es.uah.movieapp.model.Actor;
 import es.uah.movieapp.model.Director;
 import es.uah.movieapp.model.Genero;
 import es.uah.movieapp.model.Pelicula;
+import es.uah.movieapp.service.IActorService;
 import es.uah.movieapp.service.IGeneroService;
 import es.uah.movieapp.service.IPeliculaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class PeliculaController {
 
     @Autowired
     IPeliculaService peliculaService;
+
+    @Autowired
+    IActorService actorService;
 
     @GetMapping("")
     public Set<Pelicula> buscarTodas(){

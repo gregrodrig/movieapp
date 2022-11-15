@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Table(name = "genero", schema = "movierater")
 public class Genero {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -55,6 +56,18 @@ public class Genero {
         this.genero = genero;
     }
 
+    public void agregarPelicula(Pelicula pelicula){
+        if (pelicula != null){
+            getPeliculas().add(pelicula);
+            pelicula.agregarGenero(this);
+        }
+    }
+    public void eliminarPelicula(Pelicula pelicula){
+        if (pelicula != null){
+            pelicula.eliminarGenero(this);
+            getPeliculas().remove(pelicula);
+        }
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

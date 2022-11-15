@@ -16,6 +16,8 @@ public class PeliculaDAOImpl implements IPeliculaDAO{
 
     @Autowired
     IPeliculaJPA peliculaJPA;
+
+
     @Override
     public Set<Pelicula> buscarTodas() {
         return new HashSet<Pelicula>(peliculaJPA.findAll());

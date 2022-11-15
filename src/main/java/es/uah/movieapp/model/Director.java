@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Table(name = "director", schema = "movierater")
 public class Director {
 
     private static final long serialVersionUID = 1L;

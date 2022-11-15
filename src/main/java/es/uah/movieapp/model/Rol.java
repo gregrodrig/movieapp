@@ -1,11 +1,14 @@
 package es.uah.movieapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Table(name = "rol", schema = "movierater")
 public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -16,9 +19,18 @@ public class Rol {
     private String nombreRol;
 
     @OneToMany(mappedBy = "rolByTblRolIdRol")
+    @JsonIgnore(true)
     private Set<Usuario> usuarios = new LinkedHashSet<>();
 
     public Rol() {
+    }
+
+    public Rol(String nombreRol) {
+        this.nombreRol = nombreRol;
+    }
+
+    public Rol(Set<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 
     public Set<Usuario> getUsuarios() {

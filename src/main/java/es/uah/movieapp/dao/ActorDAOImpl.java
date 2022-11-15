@@ -29,6 +29,11 @@ public class ActorDAOImpl implements IActorDAO{
     }
 
     @Override
+    public Actor buscarActorPorNombre(String nombre) {
+        return actorJPA.findActorByNombreContainingIgnoreCase(nombre);
+    }
+
+    @Override
     public Actor buscarAutorPorId(Integer idAutor) {
         Optional<Actor> optional = actorJPA.findById(idAutor);
         if (optional.isPresent()){
@@ -71,6 +76,5 @@ public class ActorDAOImpl implements IActorDAO{
                 actorJPA.save(actor);
             }
         }
-
     }
 }

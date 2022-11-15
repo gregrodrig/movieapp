@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
+@Table(name = "pais", schema = "movierater")
 public class Pais {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

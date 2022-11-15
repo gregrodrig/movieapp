@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("genero")
+@RequestMapping("generos")
 public class GeneroController {
 
     @Autowired
@@ -34,5 +34,9 @@ public class GeneroController {
     @DeleteMapping("/{id}")
     public void eliminarGenero(@PathVariable("id") Integer id){
         generoService.eliminarGenero(id);
+    }
+    @GetMapping("/pelicula/agregar/{idGenero}/{idPelicula}")
+    public void agregarPelicula(@PathVariable("idGenero") Integer idGenero, @PathVariable("idPelicula") Integer idPelicula){
+        generoService.agregarPelicula(idGenero, idPelicula);
     }
 }

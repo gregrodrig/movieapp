@@ -1,9 +1,12 @@
 package es.uah.movieapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "usuario", schema = "movierater")
 public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -24,6 +27,19 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "tblRol_idRol", referencedColumnName = "idRol", nullable = false, updatable = false, insertable = false)
     private Rol rolByTblRolIdRol;
+
+    public Usuario() {
+    }
+    public Usuario(String nombre, String apellidos, String correo, Integer tblRolIdRol) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.tblRolIdRol = tblRolIdRol;
+    }
+
+    public Usuario(Rol rolByTblRolIdRol) {
+        this.rolByTblRolIdRol = rolByTblRolIdRol;
+    }
 
     public Integer getIdUsuario() {
         return idUsuario;
