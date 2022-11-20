@@ -21,7 +21,7 @@ public class PaisController {
     public Pais buscarPaisPorId(@PathVariable("id") Integer id){
         return paisService.buscarPaisPorId(id);
     }
-    @GetMapping("/{pais}")
+    @GetMapping("/pais/{pais}")
     public Pais buscarPaisPorPais(@PathVariable("pais") String pais){
         return paisService.buscarPaisPorPais(pais);
     }

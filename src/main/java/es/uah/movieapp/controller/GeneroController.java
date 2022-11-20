@@ -20,7 +20,7 @@ public class GeneroController {
     }
 
     @GetMapping("/{id}")
-    public Set<Genero> buscarGeneroPorId(@PathVariable("id") Integer id){
+    public Genero buscarGeneroPorId(@PathVariable("id") Integer id){
         return generoService.buscarGeneroPorId(id);
     }
     @PostMapping("")

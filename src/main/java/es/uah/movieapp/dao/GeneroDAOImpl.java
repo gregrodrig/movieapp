@@ -24,7 +24,7 @@ public class GeneroDAOImpl implements IGeneroDAO{
     }
 
     @Override
-    public Set<Genero> buscarGeneroPorId(Integer idGenero) {
+    public Genero buscarGeneroPorId(Integer idGenero) {
         return generoJPA.findByIdGenero(idGenero);
     }
 

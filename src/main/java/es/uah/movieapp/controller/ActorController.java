@@ -36,8 +36,8 @@ public class ActorController {
     }
     @PostMapping("")
     public void guardarActor(@RequestBody Actor actor) {
-        var x = actor.getTblpaisIdpaiss();
-        actor.setTblpaisIdpaiss(paisService.buscarPaisPorId(x.getIdPais()));
+       // var x = actor.getTblpaisIdpaiss();
+        //actor.setTblpaisIdpaiss(paisService.buscarPaisPorId(x.getIdPais()));
         actorService.guardarActor(actor);
     }
     @PutMapping("")

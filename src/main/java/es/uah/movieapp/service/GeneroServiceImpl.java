@@ -18,7 +18,7 @@ public class GeneroServiceImpl implements IGeneroService{
     }
 
     @Override
-    public Set<Genero> buscarGeneroPorId(Integer idGenero) {
+    public Genero buscarGeneroPorId(Integer idGenero) {
         return generoDAO.buscarGeneroPorId(idGenero);
     }
 

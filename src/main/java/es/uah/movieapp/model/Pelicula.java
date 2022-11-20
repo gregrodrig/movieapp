@@ -24,7 +24,7 @@ public class Pelicula {
     private String titulo;
     @Basic
     @Column(name = "duracion")
-    private Time duracion;
+    private Integer duracion;
     @Basic
     @Column(name = "sinopsis")
     private String sinopsis;
@@ -49,7 +49,7 @@ public class Pelicula {
     public Pelicula() {
     }
 
-    public Pelicula(String titulo, Time duracion, String sinopsis, String imagen, Date anno, Integer tblPaisIdPais) {
+    public Pelicula(String titulo, Integer duracion, String sinopsis, String imagen, Date anno, Integer tblPaisIdPais) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.sinopsis = sinopsis;
@@ -108,11 +108,11 @@ public class Pelicula {
         this.titulo = tiltulo;
     }
 
-    public Time getDuracion() {
+    public Integer getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(Time duracion) {
+    public void setDuracion(Integer duracion) {
         this.duracion = duracion;
     }
 
