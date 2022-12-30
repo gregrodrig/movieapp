@@ -10,6 +10,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("actores")
+@CrossOrigin
 public class ActorController {
 
     @Autowired

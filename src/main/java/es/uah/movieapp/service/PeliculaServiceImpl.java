@@ -6,6 +6,7 @@ import es.uah.movieapp.model.Director;
 import es.uah.movieapp.model.Genero;
 import es.uah.movieapp.model.Pelicula;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import java.util.Set;
 
@@ -31,6 +32,15 @@ public class PeliculaServiceImpl implements IPeliculaService{
     }
 
     @Override
+    public Set<Pelicula> findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(String search){
+        return peliculaDAO.findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(search);
+    }
+   /* @Override
+    public Director buscarPeliculaPorDirector(String director){
+        return peliculaDAO.buscarPeliculaPorDirector(director);
+    }*/
+/*
+    @Override
     public Actor buscarPeliculaPorActor(String actor) {
         return peliculaDAO.buscarPeliculaPorActor(actor);
     }
@@ -45,6 +55,11 @@ public class PeliculaServiceImpl implements IPeliculaService{
         return peliculaDAO.buscarPeliculaPorDirector(director);
     }
 
+    @Override
+    public Set<Pelicula> findPeliculaByActorsContainingIgnoreCaseOrDirectorsContainingIgnoreCaseOrGenerosContainingIgnoreCaseOrTituloContainingIgnoreCase(String actor, String director, String genero, String titulo) {
+        return peliculaDAO.findPeliculaByActorsContainingIgnoreCaseOrDirectorsContainingIgnoreCaseOrGenerosContainingIgnoreCaseOrTituloContainingIgnoreCase(actor, director, genero, titulo);
+    }
+*/
     @Override
     public void guardarPelicula(Pelicula pelicula) {
         if (peliculaDAO.buscarPeliculaPorId(pelicula.getIdPelicula()) ==null){

@@ -9,6 +9,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("generos")
+@CrossOrigin
 public class GeneroController {
 
     @Autowired

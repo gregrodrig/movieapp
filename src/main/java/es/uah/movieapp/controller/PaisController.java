@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("pais")
+@CrossOrigin
 public class PaisController {
     @Autowired
     IPaisService paisService;

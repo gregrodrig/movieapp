@@ -10,6 +10,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("directores")
+@CrossOrigin
 public class DirectorController {
 
     @Autowired

@@ -5,6 +5,7 @@ import es.uah.movieapp.model.Director;
 import es.uah.movieapp.model.Genero;
 import es.uah.movieapp.model.Pelicula;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
@@ -38,6 +39,15 @@ public class PeliculaDAOImpl implements IPeliculaDAO{
     }
 
     @Override
+    public Set<Pelicula> findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(String search){
+        return peliculaJPA.findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(search);
+    }
+    /*@Override
+    public Director buscarPeliculaPorDirector(String director){
+        return peliculaJPA.findPeliculaByDirectorsContainingIgnoreCase(director);
+    }*/
+/*
+    @Override
     public Actor buscarPeliculaPorActor(String actor) {
         return peliculaJPA.findPeliculaByActorsContainingIgnoreCase(actor);
     }
@@ -53,6 +63,11 @@ public class PeliculaDAOImpl implements IPeliculaDAO{
         return peliculaJPA.findPeliculaByDirectors(director);
     }
 
+    @Override
+    public Set<Pelicula> findPeliculaByActorsContainingIgnoreCaseOrDirectorsContainingIgnoreCaseOrGenerosContainingIgnoreCaseOrTituloContainingIgnoreCase(String actor, String director, String genero, String titulo) {
+        return peliculaJPA.findPeliculaByActorsContainingIgnoreCaseOrDirectorsContainingIgnoreCaseOrGenerosContainingIgnoreCaseOrTituloContainingIgnoreCase(actor, director, genero, titulo);
+    }
+*/
     @Override
     public void guardarPelicula(Pelicula pelicula) {
         peliculaJPA.save(pelicula);
