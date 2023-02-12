@@ -1,5 +1,6 @@
 package es.uah.movieappEureka.serviceEureka;
 import es.uah.movieappEureka.daoEureka.IPeliculaDAO;
+import es.uah.movieappEureka.modelEureka.Actor;
 import es.uah.movieappEureka.modelEureka.Genero;
 import es.uah.movieappEureka.modelEureka.Pelicula;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,18 +36,15 @@ public class PeliculaServiceImpl implements IPeliculaService{
     public Set<Genero> buscarPeliculaPorGenero(String generos) {
         return peliculaDAO.buscarPeliculaPorGenero(generos);
     }
+    @Override
+    public Set<Actor> buscarPeliculaPorActor(String actor) {
+        return peliculaDAO.buscarPeliculaPorActor(actor);
+    }
    /* @Override
     public Director buscarPeliculaPorDirector(String director){
         return peliculaDAO.buscarPeliculaPorDirector(director);
     }*/
-/*
-    @Override
-    public Actor buscarPeliculaPorActor(String actor) {
-        return peliculaDAO.buscarPeliculaPorActor(actor);
-    }
-
-
-    @Override
+/*  @Override
     public Director buscarPeliculaPorDirector(String director) {
         return peliculaDAO.buscarPeliculaPorDirector(director);
     }

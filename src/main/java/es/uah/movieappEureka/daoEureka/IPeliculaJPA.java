@@ -1,5 +1,6 @@
 package es.uah.movieappEureka.daoEureka;
 
+import es.uah.movieappEureka.modelEureka.Actor;
 import es.uah.movieappEureka.modelEureka.Genero;
 import es.uah.movieappEureka.modelEureka.Pelicula;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,8 +13,7 @@ import java.util.Set;
 
 public interface IPeliculaJPA extends JpaRepository<Pelicula, Integer> {
     Set<Pelicula> findByTituloContainingIgnoreCase(String titulo);
-//    Genero findPeliculaByGeneros(String genero);
-//     Set<Genero> findPeliculaByGenerosContainingIgnoreCase(String generos);
+    Set<Actor> findPeliculasByActorsContainingIgnoreCase(String actor);
     Set<Genero> findPeliculasByGenerosContainingIgnoreCase(String generos);
     @Modifying
     @Transactional
@@ -39,8 +39,9 @@ public interface IPeliculaJPA extends JpaRepository<Pelicula, Integer> {
 
 
 
+//    Genero findPeliculaByGeneros(String genero);
+//     Set<Genero> findPeliculaByGenerosContainingIgnoreCase(String generos);
     //Set<Director> findPeliculaByDirectorsContainingIgnoreCase(String director);
-    //Actor findPeliculaByActorsContainingIgnoreCase(String actor);
     //Genero findPeliculaByGeneros(String genero);
     //Director findPeliculaByDirectors(String director);
     //Set<Pelicula>  findPeliculaByActorsContainingIgnoreCaseOrDirectorsContainingIgnoreCaseOrGenerosContainingIgnoreCaseOrTituloContainingIgnoreCase(String actor, String director, String genero, String titulo);

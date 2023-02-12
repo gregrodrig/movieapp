@@ -43,9 +43,14 @@ public class Pelicula {
 
     @ManyToMany(mappedBy = "peliculas")
    // @JsonIgnore(true)
-    @JsonBackReference
+    //@JsonBackReference
     private Set<Actor> actors = new LinkedHashSet<>();
 
+    @ManyToMany(mappedBy = "peliculas")
+    private Set<Genero> generos = new LinkedHashSet<>();
+
+    @ManyToMany(mappedBy = "peliculas")
+    private Set<Director> directors = new LinkedHashSet<>();
     public Pelicula() {
     }
 
@@ -61,12 +66,6 @@ public class Pelicula {
     public Pelicula(Set<Actor> actors) {
         this.actors = actors;
     }
-
-    @ManyToMany(mappedBy = "peliculas")
-    private Set<Genero> generos = new LinkedHashSet<>();
-
-    @ManyToMany(mappedBy = "peliculas")
-    private Set<Director> directors = new LinkedHashSet<>();
 
     public Set<Director> getDirectors() {
         return directors;
