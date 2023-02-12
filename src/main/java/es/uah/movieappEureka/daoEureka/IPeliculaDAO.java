@@ -1,5 +1,6 @@
 package es.uah.movieappEureka.daoEureka;
 
+import es.uah.movieappEureka.modelEureka.Actor;
 import es.uah.movieappEureka.modelEureka.Genero;
 import es.uah.movieappEureka.modelEureka.Pelicula;
 
@@ -11,10 +12,10 @@ public interface IPeliculaDAO {
     Set<Pelicula> buscarPeliculaPorTitulo(String titulo);
     Set<Pelicula> findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(String search);
     Set<Genero> buscarPeliculaPorGenero(String generos);
+    Set<Actor> buscarPeliculaPorActor(String actor);
 
-   // Director buscarPeliculaPorDirector(String director);
 
-   /*  Actor buscarPeliculaPorActor(String actor);
+   /*  Director buscarPeliculaPorDirector(String director);
     Director buscarPeliculaPorDirector(String director);
     Set<Pelicula>  findPeliculaByActorsContainingIgnoreCaseOrDirectorsContainingIgnoreCaseOrGenerosContainingIgnoreCaseOrTituloContainingIgnoreCase(String actor, String director, String genero, String titulo);
     */
