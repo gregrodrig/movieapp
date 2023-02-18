@@ -20,7 +20,7 @@ public class PeliculaController {
     @Autowired
     IActorService actorService;
 
-    @GetMapping("")
+    @GetMapping("/all")
     public Set<Pelicula> buscarTodas(){
         return peliculaService.buscarTodas();
     }
