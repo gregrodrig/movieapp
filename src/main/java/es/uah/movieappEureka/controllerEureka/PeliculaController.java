@@ -1,5 +1,6 @@
 package es.uah.movieappEureka.controllerEureka;
 import es.uah.movieappEureka.modelEureka.Actor;
+import es.uah.movieappEureka.modelEureka.Director;
 import es.uah.movieappEureka.modelEureka.Genero;
 import es.uah.movieappEureka.modelEureka.Pelicula;
 import es.uah.movieappEureka.serviceEureka.IActorService;
@@ -48,16 +49,10 @@ public class PeliculaController {
     public Set<Actor> buscarPeliculaPorActor(@PathVariable("actor") String actor){
         return peliculaService.buscarPeliculaPorActor(actor);
     }
-   /* @GetMapping("/directors/{director}")
-    public Director buscarPeliculaPorDirector(@PathVariable("director") String  director){
-        return  peliculaService.buscarPeliculaPorDirector(director.toString());
-                ///peliculaService.buscarPeliculaPorDirector(director);
-    }*/
-    /*
     @GetMapping("/director/{director}")
-    public Director buscarPeliculaPorDirector(@PathVariable("director") String director){
+    public Set<Director> buscarPeliculaPorDirector(@PathVariable("director") String director){
         return peliculaService.buscarPeliculaPorDirector(director);
-    }*/
+    }
     @PostMapping("")
     public void guardarPelicula(@RequestBody Pelicula pelicula){
         peliculaService.guardarPelicula(pelicula);

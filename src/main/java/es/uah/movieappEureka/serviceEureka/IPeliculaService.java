@@ -1,5 +1,6 @@
 package es.uah.movieappEureka.serviceEureka;
 import es.uah.movieappEureka.modelEureka.Actor;
+import es.uah.movieappEureka.modelEureka.Director;
 import es.uah.movieappEureka.modelEureka.Genero;
 import es.uah.movieappEureka.modelEureka.Pelicula;
 
@@ -12,6 +13,7 @@ public interface IPeliculaService {
     Set<Pelicula> findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(String search);
     Set<Genero> buscarPeliculaPorGenero(String generos);
     Set<Actor> buscarPeliculaPorActor(String actor);
+    Set<Director> buscarPeliculaPorDirector(String director);
 
   /*  Director buscarPeliculaPorDirector(String director);
     Director buscarPeliculaPorDirector(String director);

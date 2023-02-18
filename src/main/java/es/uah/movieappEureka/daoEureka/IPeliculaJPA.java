@@ -1,6 +1,7 @@
 package es.uah.movieappEureka.daoEureka;
 
 import es.uah.movieappEureka.modelEureka.Actor;
+import es.uah.movieappEureka.modelEureka.Director;
 import es.uah.movieappEureka.modelEureka.Genero;
 import es.uah.movieappEureka.modelEureka.Pelicula;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,8 +14,13 @@ import java.util.Set;
 
 public interface IPeliculaJPA extends JpaRepository<Pelicula, Integer> {
     Set<Pelicula> findByTituloContainingIgnoreCase(String titulo);
+
     Set<Actor> findPeliculasByActorsContainingIgnoreCase(String actor);
+
     Set<Genero> findPeliculasByGenerosContainingIgnoreCase(String generos);
+
+    Set<Director> findByDirectorsContainingIgnoreCase(String director);
+
     @Modifying
     @Transactional
     @Query(value = "set @search = concat('%', :search, '%'); \n" +
@@ -28,21 +34,7 @@ public interface IPeliculaJPA extends JpaRepository<Pelicula, Integer> {
             "where ge.genero like concat('%', @search, '%')\n" +
             "    or di.nombre like concat('%', @search, '%')\n" +
             "    or ac.nombre and ac.apellidos like concat('%', @search, '%')\n" +
-            "    or pe.titulo like concat('%', @search, '%')", nativeQuery=true
+            "    or pe.titulo like concat('%', @search, '%')", nativeQuery = true
     )
     Set<Pelicula> findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(String search);
-
-    //Set<Pelicula> findPeliculaByCustomQuery(@Param("search") String search);
-
-
-    //Director findPeliculaByDirectorsContainingIgnoreCase(String director);
-
-
-
-//    Genero findPeliculaByGeneros(String genero);
-//     Set<Genero> findPeliculaByGenerosContainingIgnoreCase(String generos);
-    //Set<Director> findPeliculaByDirectorsContainingIgnoreCase(String director);
-    //Genero findPeliculaByGeneros(String genero);
-    //Director findPeliculaByDirectors(String director);
-    //Set<Pelicula>  findPeliculaByActorsContainingIgnoreCaseOrDirectorsContainingIgnoreCaseOrGenerosContainingIgnoreCaseOrTituloContainingIgnoreCase(String actor, String director, String genero, String titulo);
 }
