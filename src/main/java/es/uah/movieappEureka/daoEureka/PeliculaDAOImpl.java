@@ -1,6 +1,7 @@
 package es.uah.movieappEureka.daoEureka;
 
 import es.uah.movieappEureka.modelEureka.Actor;
+import es.uah.movieappEureka.modelEureka.Director;
 import es.uah.movieappEureka.modelEureka.Genero;
 import es.uah.movieappEureka.modelEureka.Pelicula;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,11 @@ public class PeliculaDAOImpl implements IPeliculaDAO{
     @Override
     public Set<Actor> buscarPeliculaPorActor(String actor) {
         return peliculaJPA.findPeliculasByActorsContainingIgnoreCase(actor);
+    }
+
+    @Override
+    public Set<Director> buscarPeliculaPorDirector(String director) {
+        return peliculaJPA.findByDirectorsContainingIgnoreCase(director);
     }
 
     /*@Override
