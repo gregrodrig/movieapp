@@ -7,7 +7,6 @@ import es.uah.movieappEureka.modelEureka.Pelicula;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
@@ -23,7 +22,7 @@ public interface IPeliculaJPA extends JpaRepository<Pelicula, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "set @search = concat('%', :search, '%'); \n" +
+    @Query(value = "" +
             "select * from movierater.pelicula pe inner join movierater.pais pa ON pa.idPais = pe.tblPais_idPais\n" +
             "left join movierater.pelicula_has_genero pg ON pg.tblPelicula_idPelicula = pe.idPelicula\n" +
             "left join movierater.genero ge On ge.idGenero = pg.tblGenero_idGenero\n" +
@@ -31,10 +30,12 @@ public interface IPeliculaJPA extends JpaRepository<Pelicula, Integer> {
             "left join movierater.director di on di.idDirector = pd.tblDirector_idDirector\n" +
             "left join movierater.pelicula_has_actor pac ON pac.tblPelicula_idPelicula = pe.idPelicula\n" +
             "left join movierater.actor ac ON ac.idActor = pac.tblActor_idActor\n" +
-            "where ge.genero like concat('%', @search, '%')\n" +
-            "    or di.nombre like concat('%', @search, '%')\n" +
-            "    or ac.nombre and ac.apellidos like concat('%', @search, '%')\n" +
-            "    or pe.titulo like concat('%', @search, '%')", nativeQuery = true
+            "where ge.genero like concat('%', ?1, '%')\n" +
+            "    or di.nombre like concat('%', ?1, '%')\n" +
+            "    or ac.nombre like concat('%', ?1, '%')\n" +
+            "    or ac.apellidos like concat('%', ?1, '%')\n" +
+            "    or pe.titulo like concat('%', ?1, '%')", nativeQuery = true
     )
-    Set<Pelicula> findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(String search);
+    Set<Pelicula> perliculasPorTodo(String search);
+
 }

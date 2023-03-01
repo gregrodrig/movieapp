@@ -1,5 +1,6 @@
 package es.uah.movieappEureka.controllerEureka;
 import es.uah.movieappEureka.modelEureka.Actor;
+import es.uah.movieappEureka.modelEureka.Pelicula;
 import es.uah.movieappEureka.serviceEureka.IActorService;
 import es.uah.movieappEureka.serviceEureka.IPaisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,11 @@ public class ActorController {
     @GetMapping("/{id}")
     public Actor buscarActorPorId(@PathVariable("id") Integer id){
         return actorService.buscarActorPorId(id);
+    }
+
+    @GetMapping("/peliculaPorActor/{idActor}")
+    public Set<Pelicula> buscarPeliculaPorActor(@PathVariable("idActor") Integer idActor){
+        return actorService.buscarActorPorId(idActor).getPeliculas();
     }
     @PostMapping("")
     public void guardarActor(@RequestBody Actor actor) {

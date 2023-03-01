@@ -38,8 +38,8 @@ public class PeliculaDAOImpl implements IPeliculaDAO{
     }
 
     @Override
-    public Set<Pelicula> findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(String search){
-        return peliculaJPA.findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(search);
+    public Set<Pelicula> peliculasPorTodo(String search){
+        return peliculaJPA.perliculasPorTodo(search);
     }
     @Override
     public Set<Genero> buscarPeliculaPorGenero(String generos) {
