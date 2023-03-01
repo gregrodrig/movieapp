@@ -1,5 +1,6 @@
 package es.uah.movieappEureka.controllerEureka;
 import es.uah.movieappEureka.modelEureka.Director;
+import es.uah.movieappEureka.modelEureka.Pelicula;
 import es.uah.movieappEureka.serviceEureka.IDirectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,10 @@ public class DirectorController {
     @GetMapping("/nombre/{nombre}")
     public Director buscarDirectorPorNombre(@PathVariable("nombre") String nombre){
         return directorService.buscarDirectorPorNombre(nombre);
+    }
+    @GetMapping("/peliculaPorDirector/{idDirector}")
+    public Set<Pelicula> buscarPeliculaPorGenero(@PathVariable("idDirector") Integer idDirector){
+        return directorService.buscarDirectorPorId(idDirector).getPeliculas();
     }
     @PostMapping("")
     public void guardarDirector(@RequestBody Director director){

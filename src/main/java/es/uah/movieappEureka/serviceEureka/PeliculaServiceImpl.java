@@ -30,8 +30,8 @@ public class PeliculaServiceImpl implements IPeliculaService{
     }
 
     @Override
-    public Set<Pelicula> findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(String search){
-        return peliculaDAO.findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(search);
+    public Set<Pelicula> peliculasPorTodo(String search){
+        return peliculaDAO.peliculasPorTodo(search);
     }
     @Override
     public Set<Genero> buscarPeliculaPorGenero(String generos) {

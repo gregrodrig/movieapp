@@ -10,7 +10,7 @@ public interface IPeliculaService {
     Set<Pelicula> buscarTodas();
     Pelicula buscarPeliculaPorId(Integer idPelicula);
     Set<Pelicula> buscarPeliculaPorTitulo(String titulo);
-    Set<Pelicula> findPeliculaByGenerosContainsIgnoreCaseOrDirectorsContainingIgnoreCaseOrActorsContainingIgnoreCaseOrTituloContainsIgnoreCase(String search);
+    Set<Pelicula> peliculasPorTodo(String search);
     Set<Genero> buscarPeliculaPorGenero(String generos);
     Set<Actor> buscarPeliculaPorActor(String actor);
     Set<Director> buscarPeliculaPorDirector(String director);
