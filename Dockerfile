@@ -7,6 +7,8 @@ RUN mvn -f /home/app/pom.xml clean package
 # Package stage
 #
 FROM openjdk:21-slim-buster
-COPY --from=build /home/app/target/movieappEureka-0.0.1-SNAPSHOT.jar /usr/local/lib/movieappEureka.jar
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","/usr/local/lib/movieappEureka.jar"]
+RUN mkdir /app && chmod 777 /app
+COPY --from=build /home/app/target/movieappEureka-0.0.1-SNAPSHOT.jar /app/movieappEureka.jar
+COPY /uploads /app/uploads
+EXPOSE 8000
+ENTRYPOINT ["java","-jar","/app/movieappEureka.jar"]
